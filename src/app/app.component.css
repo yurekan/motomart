@@ -1,8 +1,8 @@
-.card-container {
+  .filter-container {
     margin: 5px;
     flex: 1; /* Ensure each card takes up equal width */
   }
-  .card {
+  .filter-card {
     background-color: lightgrey;
     color: black;
     transition: background-color 0.5s ease, color 0.5s ease;
@@ -11,22 +11,187 @@
     align-items: center;
     justify-content: center;
   }
-  .card:hover {
+  .filter-card:hover {
     background-color: orange;
     color: white;
   }
-  .card-body {
+  .filter-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .card img {
+  .filter-card img {
     max-width: 100%;
     max-height: 70px;
   }
-  .card-row {
+  .filter-row {
     display: flex;
     flex-wrap: nowrap; /* Prevent wrapping to next line */
     justify-content: space-between;
   }
+
+  .bike-feature {
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    background-size: cover;
+    min-height: 100px; /* Set a minimum height for the card */
+    margin-bottom: 20px; /* Space between cards */
+  }
+  .bike-container {
+    padding: 0px;
+  }
+  .bike-body {
+    padding: 20px; /* Set even padding inside the card body */
+  }
+  .bike-feature:hover {
+    transform: scale(1.05);
+  }
+  .buy-now {
+    transition: background-color 0.5s ease;
+    color: white;
+  }
+  .buy-now:hover {
+    color: white;
+    background-color: #ff5733; /* Replace with your desired color */
+  }
+
+  .product-card {
+    border: 1px solid orange; /* Border color */
+    border-radius: 5px; /* Rounded corners for the card */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 250px; /* Card width */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Stack items at the top */
+    margin: 10px; /* Margin between cards */
+    padding: 10px; /* Padding inside the card */
+}
+.product-card:hover {
+    transform: scale(1.03); /* Slight scale effect on card hover */
+}
+.product-card img {
+    width: 100%;
+    height: 200px; /* Image height */
+    object-fit: cover; /* Cover to maintain aspect ratio */
+    transition: opacity 0.3s; /* Transition for image replacement */
+    margin-bottom: 10px; /* No margin to fit image snugly */
+    padding: 0; /* No padding */
+}
+.product-card img.secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Initially hidden */
+}
+.product-card:hover img.primary {
+    opacity: 0; /* Fade out primary image on hover */
+}
+.product-card:hover img.secondary {
+    opacity: 1; /* Fade in secondary image on hover */
+}
+.product-card .discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+.action-buttons {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center using translate */
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s; /* Transition for button visibility */
+}
+.product-card:hover .action-buttons {
+    opacity: 1; /* Show buttons on hover */
+}
+.circle-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px; /* Circle button size */
+  height: 40px; /* Circle button size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent overflow of image */
+  position: relative; /* For absolute positioning of image */
+}
+
+.btn-image {
+  width: 70%; /* Adjust this value to fit the image */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute; /* Position image absolutely */
+  object-fit: contain;
+}
+.product-card .details {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align items at the start */
+    flex-grow: 1; /* Allow details to take up available space */
+}
+.product-card .details .category,
+.product-card .details .name,
+.product-card .details .price {
+    margin-bottom: 5px; /* Margin for spacing */
+}
+.product-card .details .category {
+    color: #aaa; /* Light color for category */
+    margin-bottom: 2px; /* Smaller margin for category */
+}
+.product-card .details .name {
+    font-weight: bold; /* Bold product name */
+    margin-bottom: 5px; /* Spacing below the name */
+}
+.product-card .details .price {
+    margin-bottom: 5px; /* Spacing below the price */
+}
+.product-card .details .price .original {
+    text-decoration: line-through;
+    color: #aaa;
+}
+.product-card .small-circle {
+    width: 20px; /* Smaller circle */
+    height: 20px; /* Smaller circle */
+    border-radius: 50%;
+    background-size: cover;
+    display: inline-block;
+    margin-right: 5px; /* Space between small circles */
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+    margin-bottom: 5px; /* Margin for spacing */
+}
+.product-card .small-circle.selected {
+    border: 2px solid #000; /* Selected border */
+}
+.outer-circle {
+  width: 20px; /* Outer circle size */
+  height: 20px; /* Outer circle size */
+  border: 2px solid orange; /* Orange border */
+  border-radius: 50%; /* Circle shape */
+  display: inline-flex; /* Center inner circle */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin-right: 10px; /* Space between circle and title */
+}
+.inner-circle {
+  width: 10px; /* Inner circle size */
+  height: 10px; /* Inner circle size */
+  border-radius: 50%; /* Circle shape */
+  background-color: orange; /* Filled inner circle */
+}
+.underline {
+  height: 2px; /* Underline height */
+  background-color: grey; /* Underline color */
+  width: 100%; /* Underline width */
+  margin: 10px 0; /* Margin for spacing */
+}
