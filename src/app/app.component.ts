@@ -1,12 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-
-interface Card {
-  img: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -18,35 +13,26 @@ interface Card {
 export class AppComponent {
   title = 'motomart';
 
-  cards: Card[] = [
-    { img: '../assets/Honda.webp', name: 'Honda' },
-    { img: '../assets/TVS.webp', name: 'TVS' },
-    { img: '../assets/royal_enfield.webp', name: 'Royal Enfield' },
-    { img: '../assets/KTM.webp', name: 'KTM' },
-    { img: '../assets/Yamaha.webp', name: 'Yamaha' },
-    { img: '../assets/Bajaj.webp', name: 'Bajaj' },
-    { img: '../assets/Suzuki.webp', name: 'Suzuki' },
-    { img: '../assets/Kawasaki.webp', name: 'Kawasaki' }
+  @ViewChild('carousel', { static: true }) carousel!: ElementRef;
+
+  products = [
+    { name: 'Honda', image: '../assets/Honda.webp' },
+    { name: 'TVS', image: '../assets/TVS.webp' },
+    { name: 'Royal Enfield', image: '../assets/royal_enfield.webp' },
+    { name: 'KTM', image: '../assets/KTM.webp' },
+    { name: 'Suzuki', image: '../assets/suzuki.webp' },
+    { name: 'Yamaha', image: '../assets/yamaha.webp' },
+    { name: 'Ducati', image: '../assets/ducati.webp' },
+    { name: 'BMW', image: '../assets/bmw.webp' },
   ];
 
-  slides: Card[][] = [];
-
-  currentIndex = 0;
-  itemsPerPage = 4;
-
-  get displayedCards() {
-    return this.cards.slice(this.currentIndex, this.currentIndex + this.itemsPerPage);
+  scrollLeft() {
+    const cardWidth = this.carousel.nativeElement.querySelector('.product-carousel-card').offsetWidth;
+    this.carousel.nativeElement.scrollBy({ left: -cardWidth, behavior: 'smooth' });
   }
 
-  next() {
-    if (this.currentIndex < this.cards.length - this.itemsPerPage) {
-      this.currentIndex++;
-    }
-  }
-
-  previous() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
+  scrollRight() {
+    const cardWidth = this.carousel.nativeElement.querySelector('.product-carousel-card').offsetWidth;
+    this.carousel.nativeElement.scrollBy({ left: cardWidth, behavior: 'smooth' });
   }
 }
