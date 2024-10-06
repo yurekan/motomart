@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+
+section{
+  /* background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+  /* font-family: "Poppins", sans-serif; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it stays above other elements */
+  overflow: hidden; /* Prevent scrolling within the cart overlay */
+} 
+
+.custom-button {
+  width: 30px; /* Set the desired width */
+  height: 30px; /* Set the desired height */
+  font-size: 14px; /* Adjust font size */
+  padding: 0; /* Remove default padding */
+}
+
+.custom-input {
+  width: 50px; /* Set the desired width */
+  height: 30px; /* Set the desired height */
+  font-size: 14px; /* Adjust font size */
+}
+
+.checkout-button {
+  width: 100%; /* Full width */
+  padding: 10px 15px; /* Adjust padding as needed */
+  font-size: 18px; /* Adjust font size as needed */
+  transition: background-color 0.3s; /* Smooth transition for hover effects */
+}
+
+.checkout-button:hover {
+  background-color: #47aded; /* Darker shade for hover effect */
+}
+
+.card-container {
+  border: 1px solid #dee2e6; /* Optional: Add border for clarity */
+  border-radius: 0.25rem; /* Optional: Match Bootstrap's border radius */
+  padding: 10px; /* Optional: Add padding for spacing */
+}
+
+/* Optional: Style the scrollbar (only works in WebKit browsers) */
+.card-container {
+  --sb-track-color: #d3edf9;
+  --sb-thumb-color: #4bb6b7;
+  --sb-size: 9px;
+}
+
+.card-container::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.card-container::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 7px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 7px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .card-container {
+      scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+} 
+
+/* GlassMorphism */
+.main-card{
+  background: rgba( 75, 182, 183, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button - capsule shape */
+.dropdown-button {
+  background-color: #4bb6b7;
+  color: white;
+  padding: 10px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;  /* Capsule shape */
+  cursor: pointer;
+  transition: background-color 0.3s ease;  /* Transition effect */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;  /* Slight rounding for the dropdown */
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;  /* Transition effect */
+  transform: translateY(10px);  /* Initial translation for dropdown */
+}
+
+/* Dropdown content links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s ease;  /* Transition effect on hover */
+}
+
+/* Change color of links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);  /* Smooth transition to original position */
+}
+
+/* Change button color on hover */
+.dropdown:hover .dropdown-button {
+  background-color: #2980b9;
+}

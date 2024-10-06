@@ -1,0 +1,83 @@
+<div class="container" style="padding: 0;">
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    </head>
+
+    <nav aria-label="breadcrumb" class="breadcrumb-nav py-3 rounded shadow-lg mb-4"> <!-- Added margin-bottom for spacing -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>      
+
+    <section class="main">
+      <div class="default gallery">
+        <div class="gallery-content">
+          <div class="main-img">
+            <img class="active" [src]="currentImage" alt="product-img" />
+          </div>
+  
+          <div class="content">
+            <h3>SNEAKER COMPANY</h3>
+            <h2 class="product-name">Fall Limited Edition Sneakers</h2>
+            <p class="product-desc">
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they'll withstand everything
+              the weather can offer.
+            </p>
+            <div class="price-info">
+              <div class="price">
+                <span class="current-price">$125.00</span>
+                <span class="discount" style="background-color: green;">50%</span>
+              </div>
+              <div class="prev-price" style="color: red;">$250.00</div>
+            </div>
+  
+            <div class="add-to-cart-container">
+              <div class="quantity-controls my-3">
+                <button class="btn btn-danger btn-sm" (click)="decreaseCount()">-</button>
+                <input type="number" [(ngModel)]="quantity" class="quantity-input mx-2" min="1" />
+                <button class="btn btn-success btn-sm" (click)="increaseCount()">+</button>
+            </div>
+  
+  
+  
+              <button class="add-to-cart btn btn-primary btn-sm d-flex" (click)="addToCart()">
+                <div>
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div>Buy</div>
+              </button>
+              
+            </div>
+          </div>
+        </div>
+  
+        <div class="thumb-list-container-wrap">
+          <img src="../assets/back.png" id="backBtn" width="40" height="40" alt="Back" class="scroll-btn" />
+          
+          <div class="thumb-list-container" #scrollContainer>
+            <div class="thumb-list">
+              <div *ngFor="let img of images" (click)="changeImage(img)" class="thumbnail">
+                <img [src]="img" alt="product-img" />
+              </div>
+            </div>
+          </div>
+  
+          <img src="../assets/next.png" id="nextBtn" width="40" height="40" alt="Next" class="scroll-btn" />
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="container1">
+    <div class="box" *ngFor="let box of boxes">
+      <div class="box-content">
+        <img [src]="box.image" alt="{{ box.title }}" class="box-image" />
+        <div>
+          <h6>{{ box.title }}</h6>
+          <p>{{ box.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>

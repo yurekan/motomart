@@ -1,0 +1,209 @@
+.custom-carousel {
+    max-height: 535px; /* Set the desired maximum height */
+    overflow: hidden; /* Ensure that content that exceeds the height is hidden */
+  }
+  
+  .custom-carousel img {
+    object-fit: cover; /* Ensures the image covers the entire width and height without stretching */
+    height: 100%; /* Make sure the image takes the full height of the carousel */
+    max-height: 535px; /* Adjust the image height according to the carousel's height */
+  }
+  
+  .filter-container {
+      margin: 5px;
+      flex: 1; /* Ensure each card takes up equal width */
+    }
+    .filter-card {
+      background-color: lightgrey;
+      color: black;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .filter-card:hover {
+      background-color: orange;
+      color: white;
+    }
+    .filter-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .filter-card img {
+      max-width: 100%;
+      max-height: 70px;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: nowrap; /* Prevent wrapping to next line */
+      justify-content: space-between;
+    }
+  
+    .bike-feature {
+      overflow: hidden;
+      transition: transform 0.5s ease;
+      background-size: cover;
+      min-height: 100px; /* Set a minimum height for the card */
+      margin-bottom: 20px; /* Space between cards */
+    }
+    .bike-container {
+      padding: 0px;
+    }
+    .bike-body {
+      padding: 20px; /* Set even padding inside the card body */
+    }
+    .bike-feature:hover {
+      transform: scale(1.05);
+    }
+    .buy-now {
+      transition: background-color 0.5s ease;
+      color: white;
+    }
+    .buy-now:hover {
+      color: white;
+      background-color: #ff5733; /* Replace with your desired color */
+    }
+  
+  .product-container {
+    position: relative;
+    width: 100%; /* Adjust the width of the container */
+    overflow: hidden; /* Hide the overflow to create a clean carousel */
+  }
+  
+  .product-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 15px;
+    margin: 20px;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;     /* Firefox */
+  }
+  
+  .product-carousel::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+  
+  .product-carousel-card:hover {
+    transform: scale(1.03); /* Slight scale effect on card hover */
+  }
+  
+  .product-carousel-card {
+    flex: 0 0 auto;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .product-carousel img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10; /* Ensure the scroll button is above the product cards */
+  }
+  
+  .scroll-btn.left {
+    left: 0;
+  }
+  
+  .scroll-btn.right {
+    right: 0;
+  }
+  
+  .outer-circle {
+    width: 20px; /* Outer circle size */
+    height: 20px; /* Outer circle size */
+    border: 2px solid orange; /* Orange border */
+    border-radius: 50%; /* Circle shape */
+    display: inline-flex; /* Center inner circle */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-right: 10px; /* Space between circle and title */
+  }
+  
+  .inner-circle {
+    width: 10px; /* Inner circle size */
+    height: 10px; /* Inner circle size */
+    border-radius: 50%; /* Circle shape */
+    background-color: orange; /* Filled inner circle */
+  }
+  
+  .underline {
+    height: 2px; /* Underline height */
+    background-color: grey; /* Underline color */
+    width: 100%; /* Underline width */
+    margin: 10px 0; /* Margin for spacing */
+  }
+  
+  /* New styling for product buttons */
+  .header-product-buttons {
+    margin-left: auto; /* Pushes buttons to the right */
+  }
+  
+  .header-button {
+    background-color: transparent; /* Initial button background */
+    border: 2px solid orange; /* Button border */
+    color: orange; /* Initial button text color */
+    padding: 5px 10px; /* Button padding */
+    border-radius: 5px; /* Button border radius */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    margin-left: 10px;
+  }
+  
+  /* Button hover effects */
+  .header-button:hover {
+    background-color: orange; /* Change background to orange on hover */
+    color: white; /* Change text color to white on hover */
+  }
+  
+  .black-container {
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 30px; /* Space between video containers */
+    width: 100%; /* Adjusted width for two video containers */
+    height: 500px; /* Increased height */
+  }
+  .video-container {
+    width: 600px; /* Fixed width for each video container */
+    height: 100%; /* Use full height of black container */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .discount-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ffff00;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  

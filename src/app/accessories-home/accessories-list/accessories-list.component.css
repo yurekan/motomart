@@ -1,0 +1,84 @@
+.container .title {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    text-align: center;
+    background: radial-gradient(circle, #ff9a00, #ff6a00, #ff4500); /* Radial gradient from light to dark orange */
+    border-radius: 10px;      /* Smooth rounded corners */
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+.text {
+    font-size: 2em; /* Adjust font size to balance boldness */
+    letter-spacing: 5px; /* Slightly increase letter spacing */
+    font-family: 'Impact', sans-serif; /* Bold block-style font */
+    text-transform: uppercase; /* Capitalize all letters for block effect */
+    color: #fff; /* White text color */
+    border-right: 3px solid; /* Cursor effect for typing */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; /* Start width at 0 for typing effect */
+    animation: typing 2s forwards, /* Number of steps = number of characters */
+               cursor .5s step-end infinite alternate;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 5.5em; /* Adjust width to accommodate the entire word */
+    }
+}
+
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.breadcrumb-nav {
+    background: linear-gradient(to right, #f0f0f0, #e0e0e0); /* Soft gradient */
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Subtle border for definition */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    text-align: center; /* Center align text within breadcrumb */
+}
+
+.breadcrumb {
+    background: transparent;
+    margin-bottom: 0; /* No bottom margin on breadcrumb */
+    padding: 0; /* No padding */
+    justify-content: center; /* Center items horizontally */
+}
+
+.breadcrumb-item {
+    display: inline; /* Display items inline for centering */
+}
+
+.breadcrumb-item a {
+    font-family: 'Arial', sans-serif; /* Clean font */
+    color: #333; /* Dark gray text */
+    font-size: 1.1em; /* Slightly larger for emphasis */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.breadcrumb-item a:hover {
+    color: #ff6a00; /* Orange color on hover for contrast */
+}
+
+.breadcrumb-item.active {
+    color: #999; /* Muted gray for active item */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "›"; /* Custom arrow separator */
+    color: #ccc; /* Separator color */
+    padding: 0 5px; /* Padding around the separator */
+}
+
+

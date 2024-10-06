@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+
+.carousel, .nav-tabs, .card, .footer {
+  background-color: #021821; /* Replace with your desired color */
+}
+
+.custom-border {
+    /* border: 2px solid #bbbbbb; Customize the border color */
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.5); /* White shadow effect */
+    border-radius: 5px; /* Optional: to round the corners */
+}
+
+.navbar,#h,#hi{
+    color: white;
+}
+
+.container-fluid {
+    margin: 0px;
+}
+
+.container-fluid, .fab {
+    background-color: #021821;
+}
+
+* {
+    font-family: "Sitka Display";
+    padding:5px;
+    color: floralwhite;
+    background-color: #021821;
+}
+
+.form-control{
+    background-color: #bbbbbb;
+}
+
+.navbar{
+    height:60px;
+    padding: 0%;
+}
+
+.nav-tabs .nav-link {
+  font-weight: bold; /* Make text bold */
+  text-transform: uppercase; /* Make text uppercase */
+  color: black; /* Default text color */
+  transition: color 0.3s ease; /* Smooth transition for color */
+  width: 110px;
+  margin-right: 20px;
+  border: none; /* Remove default border */
+  position: relative; /* To position the pseudo-element for the underline effect */
+}
+
+/* Highlight the bottom tab on hover and when selected */
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link.active {
+  color: white; /* Change text color on hover and when active */
+}
+
+.nav-tabs .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; /* Adjust this to control the distance of the highlight */
+  height: 3px; /* Height of the underline */
+  background-color: white; /* Color of the underline */
+  transform: scaleX(0); /* Initially hide the underline */
+  transition: transform 0.3s ease; /* Smooth transition for underline */
+}
+
+/* Show the underline on hover and for the active tab */
+.nav-tabs .nav-link:hover::after,
+.nav-tabs .nav-link.active::after {
+  transform: scaleX(1); /* Show the underline */
+}
+
+/* Change color of non-active tabs */
+.nav-tabs .nav-link:not(:hover) {
+  color: white; /* Ensure other tabs remain black */
+}
+
+/* Remove any background from the active tab */
+.nav-tabs .nav-link.active {
+  background-color: transparent; /* Ensure no background color */
+}
+

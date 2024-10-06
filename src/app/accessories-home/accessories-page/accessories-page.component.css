@@ -1,0 +1,302 @@
+
+.top-box{
+
+    margin: 0;
+    padding: 0;
+  }
+  
+  .default.gallery {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .thumb-list {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .thumb-list div {
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .thumb-list img {
+    width: 60px; /* Thumbnail size */
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+  }
+  
+  .thumb-list img:hover {
+    opacity: 1; /* Highlight on hover */
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+  .add-to-cart-container {
+    margin-top: 20px;
+    width:auto;
+  }
+  .btn-sm{
+  width:fit-content;
+  padding: 5px 10px;
+  }
+  
+  
+  
+  .gallery-content {
+    display: flex; /* Align the main image and content side by side */
+    gap: 20px; /* Space between the image and the text */
+    align-items: center; /* Vertically center the items */
+  }
+  .main-img{
+    width: 40%;
+  }
+  .main-img img {
+    max-width: 500px; /* Adjust as needed */
+    border-radius: 20px;
+    max-height: 400px;
+    margin: 20px; /* Optional: round corners */
+  }
+  
+  .content {
+    margin: 40px 80px;
+    width: 100px; /* Allow the content to take available space */
+  }
+  
+  .content h3 {
+    font-size: 16px;
+    color: var(--orange);
+  }
+  
+  .content h2 {
+    font-size: 37px;
+    margin: 20px 0 40px 0;
+  }
+  .add-to-cart{
+    font-size: 15px;
+    width: 100px;
+    justify-content: space-evenly;
+  }
+  
+  .container {
+    max-width: fit-content;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  header, footer {
+    width: 100%;
+  }
+  
+  .main {
+    display: flex; /* Align the gallery and thumbnails side by side */
+     /* Space between main image and content */
+  }
+  
+  .gallery-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+  }
+  
+  
+  .thumb-list-container {
+    width: 30%; /* Full width for scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+  
+  .thumb-list-container img{
+    width: 50%;
+  }
+  .thumb-list-container::-webkit-scrollbar{
+    display: none;
+  }
+  .thumb-list-container-wrap{
+    display: flex;
+    align-items:center;
+    overflow: hidden;
+    width: 100%;
+    margin-left:27px
+    
+    
+  }
+  .thumb-list {
+    display: flex; /* Display items in a row */
+    gap: 10px; /* Space between thumbnails */
+  }
+  
+  .thumbnail {
+    min-width: 100px; /* Minimum width for thumbnails */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  .thumbnail img {
+    width: 100%; /* Thumbnail image width */
+    height: auto; /* Keep aspect ratio */
+    border-radius: 10px; 
+    /* Optional: round corners */
+  }
+  
+  
+  .add-to-cart-container {
+    margin-top: 20px;
+  }
+  .price{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .current-price {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .discount {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    
+  }
+  .quantity-input{
+    max-width: 40px;
+  }
+  .prev-price{
+    
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: line-through;
+    font-weight: bold;
+  }
+  
+  
+  
+  .scroll-btn {
+    width: 35px;;
+  height: auto;  
+  cursor: pointer;
+    margin: 0 2px; /* Space around scroll buttons */
+  }
+  .gallery-content {
+    display: flex; /* Align the main image and content side by side */
+    gap: 20px; /* Space between the image and the text */
+    align-items: center; /* Vertically center the items */
+  }
+  
+  .main-img img {
+    max-width: 550px; /* Adjust as needed */
+    border-radius: 20px; /* Optional: round corners */
+    margin: 50px;
+  }
+  
+  .content {
+    flex: 1; /* Allow the content to take available space */
+  }
+  
+  .content h3 {
+    font-size: 16px;
+    color: var(--orange);
+  }
+  
+  .content h2 {
+    font-size: 37px;
+    margin: 20px 0 40px 0;
+  }
+  
+  .price-info {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  #backBtn,#nextBtn{
+    width: 35px;
+    cursor: pointer;
+    margin: 30px;
+   
+  }
+  .container1 {
+    display: flex;                  /* Use flexbox for layout */
+    justify-content: space-between; /* Space the boxes evenly */
+    align-items: stretch;          /* Ensure all boxes stretch to the same height */
+    margin: 50px;
+  }
+  
+  .box {
+    width: 23%;                    /* Set a width for each box */
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: left;              /* Align text to the left */
+    display: flex;                 /* Use flexbox for internal layout */
+    align-items: center;           /* Center align items vertically */
+    height: 120px;            /* Set a minimum height */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+  }
+  
+  .box-content {
+    display: flex;                 /* Use flexbox for content layout */
+    align-items: center;           /* Center align image and text vertically */
+  }
+  
+  .box-image {
+    width: 50px;                  /* Adjust size as needed */
+    height: auto;                 /* Maintain aspect ratio */
+    margin-right: 15px;           /* Space between image and text */
+    align-self: center;           /* Center the logo vertically in the box */
+  }
+  
+  .box:hover {
+    transform: scale(1.05);       /* Zoom effect on hover */
+    background-color: #FFDD57;    /* Change this to any color you prefer */
+  }
+
+  .breadcrumb-nav {
+    background: linear-gradient(to right, #f0f0f0, #e0e0e0); /* Soft gradient */
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Subtle border for definition */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    text-align: center; /* Center align text within breadcrumb */
+}
+
+.breadcrumb {
+    background: transparent;
+    margin-bottom: 0; /* No bottom margin on breadcrumb */
+    padding: 0; /* No padding */
+    justify-content: center; /* Center items horizontally */
+}
+
+.breadcrumb-item {
+    display: inline; /* Display items inline for centering */
+}
+
+.breadcrumb-item a {
+    font-family: 'Arial', sans-serif; /* Clean font */
+    color: #333; /* Dark gray text */
+    font-size: 1.1em; /* Slightly larger for emphasis */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.breadcrumb-item a:hover {
+    color: #ff6a00; /* Orange color on hover for contrast */
+}
+
+.breadcrumb-item.active {
+    color: #999; /* Muted gray for active item */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "›"; /* Custom arrow separator */
+    color: #ccc; /* Separator color */
+    padding: 0 5px; /* Padding around the separator */
+}
+  

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+.no-scroll {
+    overflow: hidden;
+
+}
+
+body{
+    --sb-track-color: #d3edf9;
+    --sb-thumb-color: #4bb6b7;
+    --sb-size: 9px;
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 7px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 7px;
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
+  } 
