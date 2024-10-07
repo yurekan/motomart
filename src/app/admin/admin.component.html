@@ -1,0 +1,16 @@
+<!-- Admin Navbar (Shared across all child components) -->
+<nav class="navbar">
+    <div class="logo">
+      <img src="path-to-your-logo.png" alt="Logo" />
+    </div>
+    <ul class="navbar-tabs">
+      <li><a routerLink="/admin/admin-products">Products</a></li>
+      <li><a routerLink="/admin/admin-orders">Orders</a></li>
+      <li><a routerLink="/admin/admin-users">Admin Users</a></li>
+      <li><a routerLink="/admin/admin-page">Home</a></li>
+    </ul>
+  </nav>
+  
+  <!-- This is where the child components will be loaded -->
+<router-outlet></router-outlet>
+  

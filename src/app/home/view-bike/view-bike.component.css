@@ -1,0 +1,173 @@
+
+.navbar {
+    height: 50px;
+    color:white;
+    background-color: #090635; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  }
+  
+  .navbar-tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-tabs li {
+    margin: 0 15px; /* Space between tabs */
+    font-weight: bold; /* Make font bolder */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust logo size as needed */
+  }
+  
+
+
+
+  /* Bike Card Container */
+.bike-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* Bike Image */
+  .bike-image-container {
+    flex: 1;
+  }
+  
+  .bike-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Bike Details */
+  .bike-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Price */
+  .bike-price {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* EMI Button */
+  /* .emi-button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 128, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+  } */
+  
+  .emi-button:hover {
+    background-color: rgb(149, 246, 253);
+    box-shadow: 4px 4px 10px rgba(0, 128, 0, 0.4);
+  }
+  
+  /* Dropdowns Container */
+  .dropdowns {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Individual Dropdown */
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  /* Dropdown Labels */
+  .dropdown label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Dropdown Selects */
+  .dropdown select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+
+
+
+
+
+
+
+
+
+  /* Mini Navigation Bar */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .nav-tabs button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .nav-tabs button.active {
+    background-color: green;
+    color: white;
+  }
+  
+  .nav-tabs button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Tab content styling */
+  .tab-content {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  

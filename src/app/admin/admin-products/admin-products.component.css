@@ -1,0 +1,108 @@
+
+.navbar {
+    height: 50px;
+    color:white;
+    background-color: #090635; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  }
+  
+  .navbar-tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-tabs li {
+    margin: 0 15px; /* Space between tabs */
+    font-weight: bold; /* Make font bolder */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust logo size as needed */
+  }
+  
+    
+  .create-product-btn {
+      background-color: #1a9135; /* Bootstrap Success Color */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  
+    }
+    
+    .create-product-btn:hover {
+      background-color: #218838; /* Darker shade on hover */
+    }
+    
+    .product-list {
+      margin: 20px; /* Margin around the product list */
+  }
+  
+  h2 {
+      margin-bottom: 15px; /* Space below the heading */
+  }
+  
+  table {
+      width: 100%; /* Full width for the table */
+      border-collapse: collapse; /* Collapse borders */
+      
+  }
+  
+  thead {
+      background-color: #090635; /* Blue background for header */
+      color: white; /* White text color for header */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 2); /* Box shadow for header */
+     
+  }
+  
+  th, td {
+      padding: 10px; /* Padding inside table cells */
+      text-align: left; /* Align text to the left */
+  }
+  
+  th {
+      font-weight: bold; /* Make header text bold */
+  }
+  
+  tr:nth-child(even) {
+      background-color: #f9f9f9; /* Alternate row color */
+  }
+  
+  
+  
+  .product-image {
+      max-width: 50px; /* Set a max width for images */
+      height: auto; /* Maintain aspect ratio */
+  }
+  
+  select {
+      padding: 5px; /* Padding for the select box */
+  }
+    .product-list table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .product-list th, .product-list td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .product-image {
+      height: 50px; /* Adjust image size */
+      width: auto; /* Keep aspect ratio */
+    }
+    .f2{
+      font-size: 28px;
+      padding:15px;
+    }
+    

@@ -1,0 +1,68 @@
+<div>  
+    <!-- Users Page Content -->
+    <h1>Admin Users Page</h1>
+  
+    <!-- Create New Admin Button -->
+    <button class="create-admin-btn">Create New Admin</button>
+  
+    <div class="users-card">
+      <h2>Admin Users List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <!-- <th>Privilege</th> -->
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Admin One</td>
+            <td>admin1&#64;example.com</td>
+            <!-- <td>
+              <select>
+                <option value="super">Super</option>
+                <option value="moderate">Moderate</option>
+              </select>
+            </td> -->
+            <td><button class="delete-btn" (click)="deleteUser('Admin One')">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Admin Two</td>
+            <td>admin2&#64;example.com</td>
+            <!-- <td>
+              <select>
+                <option value="super">Super</option>
+                <option value="moderate">Moderate</option>
+              </select>
+            </td> -->
+            <td><button class="delete-btn" (click)="deleteUser('Admin Two')">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Admin Three</td>
+            <td>admin3&#64;example.com</td>
+            <!-- <td>
+              <select>
+                <option value="super">Super</option>
+                <option value="moderate">Moderate</option>
+              </select>
+            </td> -->
+            <td><button class="delete-btn" (click)="deleteUser('Admin Three')">Delete</button></td>
+          </tr>
+          <tr>
+            <td>Admin Four</td>
+            <td>admin4&#64;example.com</td>
+            <!-- <td>
+              <select>
+                <option value="super">Super</option>
+                <option value="moderate">Moderate</option>
+              </select>
+            </td> -->
+            <td><button class="delete-btn" (click)="deleteUser('Admin Four')">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

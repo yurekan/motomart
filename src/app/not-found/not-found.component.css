@@ -1,0 +1,13 @@
+.fullscreen-image {
+    background-image: url(../../assets/error-404-concept-landing-page/3959810.jpg); /* Replace with your image */
+    background-size: cover;    /* Ensures the image covers the whole window */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;             /* Full viewport height */
+    width: 100vw;              /* Full viewport width */
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}

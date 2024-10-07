@@ -1,0 +1,136 @@
+
+
+.navbar {
+    height: 50px;
+    color:white;
+    background-color: #090635; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  }
+  
+  .navbar-tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-tabs li {
+    margin: 0 15px; /* Space between tabs */
+    font-weight: bold; /* Make font bolder */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust logo size as needed */
+  }
+  
+    
+  
+    .admin-name {
+      font-size: 20px;
+    }
+    
+    
+    
+  
+    body {
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Set the font to Poppins */
+  }
+  
+  .home-container {
+      text-align: center; /* Center text within the container */
+  }
+  
+  .cards {
+      display: flex;
+      justify-content: space-around; /* Space out the cards */
+      flex-wrap: wrap; /* Allow cards to wrap */
+      margin-top: 20px; /* Add some space above cards */
+  }
+  
+  .card {
+      background-color: #e9fffe; /* Card background color */
+      border-radius: 8px; /* Slightly rounded corners */
+      width: 200px; /* Set card width */
+      height: 150px; /* Set card height */
+      margin: 10px; /* Space between cards */
+      padding: 15px; /* Padding inside the card */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 1); /* Shadow effect */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center content within the card */
+  }
+  
+  .card-logo {
+      height: 40px; /* Adjust logo size as needed */
+      margin-bottom: 10px; /* Space below logo */
+  }
+  
+  h2, p {
+      margin: 5px 0; /* Space above and below text */
+  }
+    h1 {
+      margin-bottom: 20px;
+    }
+  
+    
+  
+  
+    body {
+      font-family: 'Poppins', sans-serif; /* Ensure Poppins font is used */
+  }
+  
+  .orders-card {
+      margin: 20px; /* Margin around the orders card */
+      text-align: left; /* Align text to the left */
+  }
+  
+  h2 {
+      font-size: 18px; /* Make the customer orders text smaller */
+      margin-bottom: 10px; /* Space below the heading */
+  }
+  
+  table {
+      width: 100%; /* Full width for the table */
+      border-collapse: collapse; /* Collapse borders */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for the table */
+      border-radius: 8px; /* Rounded corners for the table */
+      overflow: hidden; /* Ensure rounding applies */
+  }
+  
+  th, td {
+      padding: 10px; /* Padding inside table cells */
+      text-align: left; /* Align text to the left */
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2); /* Bolder bottom border for rows */
+  }
+  
+  th {
+    color: white;
+      background-color: #120c44; /* Background color for header */
+      font-weight: bold; /* Make header text bold */
+  }
+  
+  tr:hover {
+      background-color: #f9f9f9; /* Hover effect for rows */
+  }
+  
+  button {
+      padding: 5px 10px; /* Padding for the button */
+      background-color: #0a2849; /* Button background color */
+      color: white; /* Button text color */
+      border: none; /* No border for button */
+      border-radius: 4px; /* Rounded corners for button */
+      cursor: pointer; /* Change cursor on hover */
+  }
+  
+  button:hover {
+      background-color: #0056b3; /* Darker shade on hover */
+  }
+  .f1{
+    padding-top: 20px;
+    font-size: 8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }

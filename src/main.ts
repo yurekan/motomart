@@ -6,6 +6,7 @@ import { AccessoriesListComponent } from './app/accessories-home/accessories-lis
 import { AccessoriesPageComponent } from './app/accessories-home/accessories-page/accessories-page.component';
 import { RunProjectComponent } from './app/run-project/run-project.component';
 import { RunAppComponent } from './app/run-app/run-app.component';
+import { AdminComponent } from './app/admin/admin.component';
 
 
 bootstrapApplication(RunAppComponent, appConfig)

@@ -1,0 +1,109 @@
+/* Container to center content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Controls (Sorting and Filtering) */
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .control label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .control select {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+  
+  /* Cards Container */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Individual Card */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    background-color: #fff;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  }
+  
+  .bike-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .card-content p {
+    margin: 5px 0;
+    color: #555;
+  }
+
+  
+  .view-button{
+    border-radius: 40px;
+    border-color: green;
+
+  }
+
+
+
+  
+.navbar {
+    height: 50px;
+    color:white;
+    background-color: #090635; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  }
+  
+  .navbar-tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-tabs li {
+    margin: 0 15px; /* Space between tabs */
+    font-weight: bold; /* Make font bolder */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust logo size as needed */
+  }
+  

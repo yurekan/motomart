@@ -1,0 +1,143 @@
+.emi-calculator-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+    .emi-calculator-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font-weight: 600;
+    }
+  
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
+  /*button {
+    width: 48%;
+    padding: 12px;
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 4%;
+    transition: background-color 0.3s ease;
+  }*/
+  
+  
+    button:hover:not(:disabled) {
+      background-color: #e65c00;
+    }
+  
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  
+  .results {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 5px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+    .results h3 {
+      color: #000000;
+      margin-bottom: 10px;
+    }
+  
+    .results p {
+      color: #333;
+      margin: 5px 0;
+      font-weight: 500;
+    }
+  
+    .results h4 {
+      margin-top: 20px;
+      color: #333;
+    }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  .navbar {
+    height: 50px;
+    color: white;
+    background-color: #090635; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  }
+  
+  .navbar-tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+    .navbar-tabs li {
+      margin: 0 15px; /* Space between tabs */
+      font-weight: bold; /* Make font bolder */
+      cursor: pointer; /* Change cursor to pointer */
+    }
+  
+  .logo img {
+    height: 40px; /* Adjust logo size as needed */
+  }
+  

@@ -1,0 +1,98 @@
+
+.navbar {
+    height: 50px;
+    color:white;
+    background-color: #090635; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5); /* Shadow below navbar */
+  }
+  
+  .navbar-tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-tabs li {
+    margin: 0 15px; /* Space between tabs */
+    font-weight: bold; /* Make font bolder */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust logo size as needed */
+  }
+  
+    .create-admin-btn {
+      background-color: #1a9135; /* Bootstrap Primary Color */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 8px rgba(0, 0, 0, 2); /* Shadow below navbar */
+  
+    }
+    
+    .create-admin-btn:hover {
+      background-color: #0056b3; /* Darker shade on hover */
+    }
+    
+    .users-card {
+      margin: 20px; /* Margin around the users card */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+      padding: 20px; /* Padding inside the card */
+      border-radius: 8px; /* Rounded corners for the card */
+  }
+  
+  h2 {
+      margin-bottom: 15px; /* Space below the heading */
+  }
+  
+  table {
+      width: 100%; /* Full width for the table */
+      border-collapse: collapse; /* Collapse borders */
+      
+  }
+  
+  thead {
+      background-color: #090635; /* Blue background for header */
+      color: white; /* White text color for header */
+  
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+  
+  }
+  
+  th, td {
+      padding: 10px; /* Padding inside table cells */
+      text-align: left; /* Align text to the left */
+      font-weight: bold; /* Make text bold */
+  }
+  
+  th {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for the header cells */
+  }
+  
+  tr:nth-child(even) {
+      background-color: #f9f9f9; /* Alternate row color */
+  }
+  
+  tr:hover {
+      background-color: #f1f1f1; /* Hover effect for rows */
+  }
+  
+  .delete-btn {
+      background-color: #dc3545; /* Red background for delete button */
+      color: white; /* White text for button */
+      border: none; /* No border */
+      border-radius: 4px; /* Rounded corners for button */
+      padding: 5px 10px; /* Padding for button */
+      cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  .delete-btn:hover {
+      background-color: #c82333; /* Darker shade on hover */
+  }

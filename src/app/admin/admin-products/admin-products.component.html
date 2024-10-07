@@ -1,0 +1,74 @@
+<div>  
+    <!-- Product Page Content -->
+    <h3  class="f2">Product Page</h3>
+    
+    <!-- Create New Product Button -->
+    <button class="create-product-btn" (click)="createNewProduct()">Create New Product</button>
+    
+    <div class="product-list">
+      <h3 class="f2">Available Products</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="./assets/bike1.jpg" alt="Product A" class="product-image" /></td>
+            <td>Product A</td>
+            <td>Category 1</td>
+            <td>20</td>
+            <td>$10</td>
+            <td><select>
+              <option value="view">View</option>
+              <option value="edit">Edit</option>
+              <option value="delete">Delete</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td><img src="./assets/bike1.jpg" alt="Product B" class="product-image" /></td>
+            <td>Product B</td>
+            <td>Category 2</td>
+            <td>15</td>
+            <td>$15</td>
+            <td><select>
+              <option value="view">View</option>
+              <option value="edit">Edit</option>
+              <option value="delete">Delete</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td><img src="path-to-image3.jpg" alt="Product C" class="product-image" /></td>
+            <td>Product C</td>
+            <td>Category 3</td>
+            <td>30</td>
+            <td>$20</td>
+            <td><select>
+              <option value="view">View</option>
+              <option value="edit">Edit</option>
+              <option value="delete">Delete</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td><img src="path-to-image4.jpg" alt="Product D" class="product-image" /></td>
+            <td>Product D</td>
+            <td>Category 4</td>
+            <td>5</td>
+            <td>$25</td>
+            <td><select>
+              <option value="view">View</option>
+              <option value="edit">Edit</option>
+              <option value="delete">Delete</option>
+            </select></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

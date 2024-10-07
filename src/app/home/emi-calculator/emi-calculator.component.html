@@ -1,0 +1,93 @@
+<nav class="navbar">
+    <div class="logo">
+      <img src="path-to-your-logo.png" alt="Logo" />
+    </div>
+    <ul class="navbar-tabs">
+      <li><a routerLink="/admin-products">Products</a></li>
+      <li><a routerLink="/admin-orders">Orders</a></li>
+      <li><a routerLink="/admin-users">Admin Users</a></li>
+      <li><a routerLink="#">Home</a></li>
+    </ul>
+  </nav>
+
+  <div class="emi-calculator-container">
+    <h2>Bike Loan EMI Calculator</h2>
+  
+    <form (ngSubmit)="calculateEMI()" #emiForm="ngForm">
+      <div class="form-group">
+        <label for="loanAmount">Loan Amount (₹):</label>
+        <input type="number"
+               id="loanAmount"
+               name="loanAmount"
+               [(ngModel)]="loanAmount"
+               required
+               min="1"
+               placeholder="Enter loan amount" />
+        <div class="error" *ngIf="emiForm.submitted && loanAmount <= 0">
+          Please enter a valid loan amount.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="interestRate">Interest Rate (% per annum):</label>
+        <input type="number"
+               id="interestRate"
+               name="interestRate"
+               [(ngModel)]="interestRate"
+               required
+               min="0.1"
+               step="0.1"
+               placeholder="Enter interest rate" />
+        <div class="error" *ngIf="emiForm.submitted && interestRate <= 0">
+          Please enter a valid interest rate.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="loanTenure">Loan Tenure (months):</label>
+        <input type="number"
+               id="loanTenure"
+               name="loanTenure"
+               [(ngModel)]="loanTenure"
+               required
+               min="1"
+               placeholder="Enter loan tenure" />
+        <div class="error" *ngIf="emiForm.submitted && loanTenure <= 0">
+          Please enter a valid loan tenure.
+        </div>
+      </div>
+  
+      <button type="submit" class="p-2 bg-[#ffa500] text-dark rounded mb-2 ">Calculate EMI</button>
+      <button type="button" (click)="resetForm()" class="p-2 bg-red-500 text-dark rounded">Reset</button>
+  
+    </form>
+  
+    <div class="results" *ngIf="emi !== null" @fadeIn>
+      <h3>Your Monthly EMI is: ₹{{ emi }}</h3>
+      <p>Total Payment: ₹{{ totalPayment }}</p>
+      <p>Total Interest: ₹{{ totalInterest }}</p>
+  
+      <h4>Amortization Schedule:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>EMI (₹)</th>
+            <th>Principal (₹)</th>
+            <th>Interest (₹)</th>
+            <th>Remaining Balance (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of amortizationSchedule">
+            <td>{{ payment.month }}</td>
+            <td>{{ payment.emi }}</td>
+            <td>{{ payment.principal }}</td>
+            <td>{{ payment.interest }}</td>
+            <td>{{ payment.balance }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

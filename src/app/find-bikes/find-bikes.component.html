@@ -1,0 +1,44 @@
+<div class="container">
+    <!-- Sorting and Filtering Section -->
+    <div class="controls">
+      <!-- Sorting Dropdown -->
+      <div class="control">
+        <label for="sort">Sort By:</label>
+        <select id="sort" [(ngModel)]="sortOption" (change)="onSortChange()">
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
+      </div>
+  
+      <!-- Filtering Dropdown -->
+      <div class="control">
+        <label for="filter">Filter By:</label>
+        <select id="filter" [(ngModel)]="filterOption" (change)="onFilterChange()">
+          <option value="all">All</option>
+          <option value="priceAsc">Price: Low to High</option>
+          <option value="priceDesc">Price: High to Low</option>
+          <option value="mileageAsc">Mileage: Low to High</option>
+          <option value="mileageDesc">Mileage: High to Low</option>
+          <option value="popularity">Popularity</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- Bikes Cards Section -->
+    <div class="cards-container">
+      <div class="card" *ngFor="let bike of displayedBikes">
+        <img [src]="bike.image" alt="{{ bike.name }}" class="bike-image" />
+        <div class="card-content">
+          <h3 class="bike-name">{{ bike.name }}</h3>
+          <p><strong>Model:</strong> {{ bike.model }}</p>
+          <p><strong>Price:</strong> ${{ bike.price }}</p>
+          <p><strong>Ratings:</strong> {{ bike.ratings }} / 5</p>
+          <p><strong>Mileage:</strong> {{ bike.mileage }} km/l</p>
+          <p><strong>Weight:</strong> {{ bike.weight }} kg</p>
+          <p><strong>Engine Capacity:</strong> {{ bike.engineCapacity }} cc</p>
+          <button class="view-button"><p>View</p></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
