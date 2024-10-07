@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.body {
+body {
   display: flex;
   background-color: #f6f5f7;
   justify-content: center;
@@ -308,16 +308,25 @@ input {
 
   .social-container a {
     border: 1px solid #dddddd;
-    border-radius: 10px;
+    border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0 5px;
     height: 40px;
-    width: 160px;
+    width: 40px;
     transition: 0.3s ease-in-out;
   }
 
     .social-container a:hover {
       border: 1px solid #4bb6b7;
+    }
+
+    .alert{
+      width: 280px;
+      height: 40px;
+    }
+
+    .error-message{
+      justify-content: center;
     }

@@ -1,77 +1,170 @@
-<div class="body">
+<body>
     
 
-    <div class="container" [ngClass]="{'right-panel-active': isRegistering||isForgotPassword}">
-        <!-- Registration Form -->
-        <div class="form-container register-container" *ngIf="isRegistering">
-          <form action="#">
-            <h1>Register</h1>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button type="button">Register</button>
-            <span>or use your account</span>
-            <div class="social-container">
-              <a href="#" class="social"><i class="lni lni-google"></i></a>
+  <div class="container" [ngClass]="{'right-panel-active': isRegistering||isForgotPassword}">
+  
+      <!-- Registration Form -->
+      <div class="form-container register-container" *ngIf="isRegistering">
+        <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmitRegister()">
+          <h1>Register</h1>
+          <input type="text" name="username" placeholder="Username" #username="ngModel" [(ngModel)]="registerUser.username"
+          [ngClass]="{'is-invalid' : f.submitted && username.errors}" required>
+          <div *ngIf="f.submitted && username.errors" class="invalid-feedback">
+              <div *ngIf="username.errors['required']">Username is mandatory</div>
+          </div>
+          <input type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="registerUser.email"
+          [ngClass]="{'is-invalid' : f.submitted && email.errors}" email required>
+          <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
+              <div *ngIf="email.errors['required']">Email is mandatory</div>
+          </div>
+          <input type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="registerUser.password"
+          [ngClass]="{'is-invalid' : f.submitted && password.errors}" required>
+          <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+              <div *ngIf="password.errors['required']">Password mandatory</div>
+          </div>
+          <ng-container *ngIf="isVisible">
+            <ng-container *ngIf="errorPresent; else success_content">
+                <div class="alert alert-danger" role="alert">
+                    {{ err }}
+                </div>
+            </ng-container>
+        
+            <ng-template #success_content>
+                <div *ngIf="!errorPresent">
+                    <div class="alert alert-success" role="alert">
+                        {{ err }}
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        
+        <ng-container *ngIf="!isVisible">
+            <div *ngIf="!errorPresent">
             </div>
-          </form>
-        </div>
-      
-        <!-- Login Form -->
-        <div class="form-container login-container" *ngIf="!isRegistering && !isForgotPassword">
-          <form action="#">
-            <h1>Login</h1>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <div class="content">
-              <div class="checkbox">
-                <input type="checkbox" name="checkbox" id="checkbox">
-                <label>Remember me</label>
-              </div>
-              <div class="pass-link">
-                <a href="javascript:void(0);" (click)="toggleForgotPassword()">Forgot Password?</a>
-              </div>
+        </ng-container>        
+          <button type="submit" >Register</button>
+          <span>or use your account</span>
+          <div class="social-container">
+            <a class="social"><i class="lni lni-google"></i></a>
+          </div>
+        </form>
+      </div>
+    
+      <!-- Login Form -->
+      <div class="form-container login-container" *ngIf="!isRegistering && !isForgotPassword">
+        <form #f="ngForm" (ngSubmit)="f.form.valid" action="#">
+          <h1>Login</h1>
+          <input type="text" placeholder="Username" name="username" #username="ngModel" [(ngModel)]="loginUser.username"
+          [ngClass]="{'is-invalid' : f.submitted && username.errors}" required>
+          <div *ngIf="f.submitted && username.errors" class="invalid-feedback">
+              <div *ngIf="username.errors['required']">Username is mandatory</div>
+          </div>
+          <input type="password" placeholder="Password" name="password" #password="ngModel"
+          [(ngModel)]="loginUser.password" [ngClass]="{'is-invalid' : f.submitted && password.errors}" required>
+          <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+              <div *ngIf="password.errors['required']">Password is mandatory</div>
+          </div>
+          <ng-container *ngIf="isVisible">
+            <ng-container *ngIf="errorPresent; else success_content">
+                <div class="alert alert-danger" role="alert">
+                    {{ err }}
+                </div>
+            </ng-container>
+        
+            <ng-template #success_content>
+                <div *ngIf="!errorPresent">
+                    <div class="alert alert-success" role="alert">
+                        {{ err }}
+                    </div>
+                </div>
+            </ng-template>
+          </ng-container>
+        
+          <ng-container *ngIf="!isVisible">
+            <div *ngIf="!errorPresent">
             </div>
-            <button type="button">Login</button>
-            <span>or use your account</span>
-            <div class="social-container">
-              <a href="#" class="social"><i class="lni lni-google"></i></a>
+          </ng-container>
+          <div class="content">
+            <div class="checkbox">
+              <input type="checkbox" name="checkbox" id="checkbox">
+              <label>Remember me</label>
             </div>
-          </form>
-        </div>
-      
-        <!-- Forgot Password Form -->
-        <div class="form-container forgot-password-container" *ngIf="isForgotPassword">
-          <form action="#">
-            <h1>Forgot Password?</h1>
-            <input type="email" placeholder="Enter your email" required>
-            <input type="password" placeholder="New Password" required>
-            <input type="password" placeholder="Confirm New Password" required>
-            <button type="button" (click)="resetPassword()">Reset Password</button>
-            <span>Remembered your password? <a href="javascript:void(0);" (click)="toggleLogin()">Login</a></span>
-          </form>
-        </div>
-      
-        <!-- Overlay for Registration/Login -->
-        <div class="overlay-container">
-          <div class="overlay">
-            <div class="overlay-panel overlay-left">
-              <h1 class="title">Hello <br> friends</h1>
-              <p>if you have an account, login here and have fun</p>
-              <button class="ghost" (click)="toggleLogin()">
-                Login
-                <i class="lni lni-arrow-left login"></i>
-              </button>
+            <div class="pass-link">
+              <a href="javascript:void(0);" (click)="toggleForgotPassword()">Forgot Password?</a>
             </div>
-            <div class="overlay-panel overlay-right">
-              <h1 class="title">Start your <br> journey now</h1>
-              <p>if you don't have an account yet, join us and start your journey.</p>
-              <button class="ghost" (click)="toggleRegister()">
-                Register
-                <i class="lni lni-arrow-right register"></i>
-              </button>
+          </div>
+          <button type="submit" (click)="onSubmitLogin()">Login</button>
+          <span>or use your account</span>
+          <div class="social-container">
+            <a class="social"><i class="lni lni-google"></i></a>
+          </div>
+        </form>
+      </div>
+    
+      <!-- Forgot Password Form -->
+      <div class="form-container forgot-password-container" *ngIf="isForgotPassword">
+        <form #f="ngForm" (ngSubmit)="f.form.valid  && onSubmitForgot()">
+          <h1>Forgot Password?</h1>
+          <input type="text" placeholder="Username" name="username" #username="ngModel" [(ngModel)]="forgotUser.username"
+          [ngClass]="{'is-invalid' : f.submitted && username.errors}" required>
+          <div *ngIf="f.submitted && username.errors" class="invalid-feedback">
+              <div *ngIf="username.errors['required']">Username is mandatory</div>
+          </div>
+          <input type="password" placeholder="Password" name="password" #password="ngModel"
+          [(ngModel)]="forgotUser.password" [ngClass]="{'is-invalid' : f.submitted && password.errors}" required>
+          <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+              <div *ngIf="password.errors['required']">Password is mandatory</div>
+          </div>
+          <input type="password" placeholder="Confirm New Password" name="confirmPassword"  #checkPassword="ngModel" [(ngModel)]="confirmPassword"
+          [ngClass]="{'is-invalid' : f.submitted && checkPassword.errors}" required>
+          <div *ngIf="f.submitted && checkPassword.errors" class="invalid-feedback">
+            <div *ngIf="checkPassword.errors['required']">Confirm Password is mandatory</div>
+          </div>
+          <ng-container *ngIf="isVisible">
+            <ng-container *ngIf="errorPresent; else success_content">
+                <div class="alert alert-danger" role="alert">
+                    {{ err }}
+                </div>
+            </ng-container>
+        
+            <ng-template #success_content>
+                <div *ngIf="!errorPresent">
+                    <div class="alert alert-success" role="alert">
+                        {{ err }}
+                    </div>
+                </div>
+            </ng-template>
+          </ng-container>
+        
+          <ng-container *ngIf="!isVisible">
+            <div *ngIf="!errorPresent">
             </div>
+          </ng-container>
+          <button type="submit">Reset Password</button>
+          <span>Remembered your password? <a href="javascript:void(0);" (click)="toggleLogin()">Login</a></span>
+        </form>
+      </div>
+    
+      <!-- Overlay for Registration/Login -->
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1 class="title">Hello <br> friends</h1>
+            <p>if you have an account, login here and have fun</p>
+            <button class="ghost" (click)="toggleLogin()">
+              Login
+              <i class="lni lni-arrow-left login"></i>
+            </button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1 class="title">Start your <br> journey now</h1>
+            <p>if you don't have an account yet, join us and start your journey.</p>
+            <button class="ghost" (click)="toggleRegister()">
+              Register
+              <i class="lni lni-arrow-right register"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </body>
