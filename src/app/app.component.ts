@@ -16,22 +16,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent{
   
   title = 'motomart';
-  isCheckoutPage: boolean = false;
-  private subscription: Subscription | null = null; // Initialize with null
-
-  constructor(public shoppingCartService: ShoppingCartService, private router: Router){
-    this.router.events.subscribe(() => {
-      // Check if the current URL is the checkout page
-      this.isCheckoutPage = this.router.url === '/checkout';
-    });
-  }
-  
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe(); // Check if subscription exists before unsubscribing
-    }
-  }
 }
