@@ -1,18 +1,30 @@
 <div class="container my-5">
-    <div class="title py-4 rounded shadow-lg mb-4"> <!-- Added margin-bottom for spacing -->
-        <p class="text">Title</p>
+    <div class="title py-4 rounded shadow-lg mb-4">
+        <p class="text">{{ category }}</p>
     </div>
-    
-    <nav aria-label="breadcrumb" class="breadcrumb-nav py-3 rounded shadow-lg mb-4"> <!-- Added margin-bottom for spacing -->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Library</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
-        </ol>
-    </nav>      
 
-    <div class="row g-4">
-        <!-- Product Card 1 -->
-        <app-accessories-featured></app-accessories-featured>
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let accessory of accessories">
+            <div class="product-card">
+                <div class="discount">-20%</div>
+                <img src="../assets/product1.png" alt="Product Image" class="primary">
+                <img src="../assets/product2.png" alt="Product Image" class="secondary">
+                <div class="action-buttons">
+                    <div class="circle-btn"><i class="fas fa-shopping-cart" (click)="openProductPage(accessory.accessoryId || 0)"></i></div>
+                    <div class="circle-btn"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="details">
+                    <div class="category">{{ category }}</div>
+                    <div class="name">{{ accessory.name }}</div>
+                    <div class="price">
+                        <span class="final-price">₹ {{ accessory.price }} </span><span class="original">₹1,698.00</span>
+                    </div>
+                    <div>
+                        <div class="small-circle" style="background-image: url('../assets/bike1.jpg');"></div>
+                        <div class="small-circle" style="background-image: url('../assets/bike2.jpg');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

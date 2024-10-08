@@ -10,10 +10,18 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(public shoppingCartService: ShoppingCartService, private router: Router) { }
+  constructor(public cartService: ShoppingCartService, private router: Router) { }
   
+  itemCount: number = 0;
+
+  ngOnInit() {
+    this.cartService.itemCount$.subscribe(count => {
+      this.itemCount = count; // Update item count when it changes
+    });
+  }
+
   openCart() {
-    this.shoppingCartService.openCart();
+    this.cartService.openCart();
   }
 
   openLogin() {

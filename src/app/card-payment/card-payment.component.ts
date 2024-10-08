@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-card-payment',
   standalone: true,
-  imports: [CommonModule],
+  imports:[CommonModule],
   templateUrl: './card-payment.component.html',
-  styleUrl: './card-payment.component.css'
+  styleUrls: ['./card-payment.component.css'] 
 })
 export class CardPaymentComponent {
-  
-  title = 'card-payment';
+  title = 'payment';
+
+
   isFlipped: boolean = false; 
     cardNumber: string = '';
     cardHolder: string = '';

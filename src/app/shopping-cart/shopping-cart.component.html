@@ -20,22 +20,22 @@
                   <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
                       <p class="mb-1">Shopping cart</p>
-                      <p class="mb-0">You have 6 items in your cart</p>
+                      <p class="mb-0">You have {{cartItems.length}} items in your cart</p>
                     </div>
                     <div>
   
                       <div class="dropdown">
                         <button class="dropdown-button">Sort By</button>
                         <div class="dropdown-content">
-                          <a href="#option1">Price</a>
-                          <a href="#option2">Quantity</a>
+                          <a (click)="onSortChange('price')">Price</a>
+                          <a (click)="onSortChange('quantity')">Quantity</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 
                   <!-- Scrollable Card Container -->
-                  <div class="card-container" style="max-height: 400px; overflow-y: auto;">
+                  <div *ngFor="let item of cartItems" class="card-container" style="max-height: 400px; overflow-y: auto;">
                     <div class="card mb-3">
                       <div class="card-body">
                         <div class="d-flex justify-content-between">
@@ -44,213 +44,28 @@
                               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="img-fluid rounded" alt="Shopping item" style="width: 65px;">
                             </div>
                             <div class="ms-3">
-                              <h5>Iphone 11 pro</h5>
-                              <p class="small mb-0">256GB, Navy Blue</p>
+                              <h5>{{ item.name }}</h5>
+                              <p class="small mb-0">{{item.name}}</p>
                             </div>
                           </div>
                           <div class="d-flex flex-row align-items-center">
                             <div class="d-flex align-items-center me-3">
-                              <button class="btn btn-danger custom-button me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                              <button class="btn btn-danger custom-button me-2" (click)="decreaseQuantity(item.productId)">
                                 <i class="fas fa-minus"></i>
                               </button>
                 
                               <div class="form-outline">
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control custom-input" />
+                                <input id="form1" name="quantity" type="number" class="form-control custom-input" [value]="item.quantity" min="1" readonly/>
                               </div>
                 
-                              <button class="btn btn-success custom-button ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                <i class="fas fa-plus"></i>
+                              <button class="btn btn-success custom-button ms-2" (click)="increaseQuantity(item.productId)">
+                                <i class="fas fa-plus" ></i>
                               </button>
                             </div>
                             <div style="width: 80px;" class="text-end">
-                              <h5 class="mb-0">$1200</h5>
+                              <h5 class="mb-0">{{item.price * item.quantity}}</h5>
                             </div>
-                            <a href="#!" style="color: #cecece;" class="ms-3">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div>
-                              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp" class="img-fluid rounded" alt="Shopping item" style="width: 65px;">
-                            </div>
-                            <div class="ms-3">
-                              <h5 class="mb-1">Samsung Galaxy Note 10</h5>
-                              <p class="small mb-0">256GB, Navy Blue</p>
-                            </div>
-                          </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="d-flex align-items-center me-3">
-                              <button class="btn btn-danger custom-button me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                <i class="fas fa-minus"></i>
-                              </button>
-                
-                              <div class="form-outline">
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control custom-input" />
-                              </div>
-                
-                              <button class="btn btn-success custom-button ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                <i class="fas fa-plus"></i>
-                              </button>
-                            </div>
-                            <div style="width: 80px;" class="text-end">
-                              <h5 class="mb-0">$900</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;" class="ms-3">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div>
-                              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp" class="img-fluid rounded" alt="Shopping item" style="width: 65px;">
-                            </div>
-                            <div class="ms-3">
-                              <h5>MacBook Pro</h5>
-                              <p class="small mb-0">1TB, Graphite</p>
-                            </div>
-                          </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="d-flex align-items-center me-3">
-                              <button class="btn btn-danger custom-button me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                <i class="fas fa-minus"></i>
-                              </button>
-                
-                              <div class="form-outline">
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control custom-input" />
-                              </div>
-                
-                              <button class="btn btn-success custom-button ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                <i class="fas fa-plus"></i>
-                              </button>
-                            </div>
-                            <div style="width: 80px;" class="text-end">
-                              <h5 class="mb-0">$1799</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;" class="ms-3">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div>
-                              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp" class="img-fluid rounded" alt="Shopping item" style="width: 65px;">
-                            </div>
-                            <div class="ms-3">
-                              <h5>Google Pixel 5</h5>
-                              <p class="small mb-0">128GB, Just Black</p>
-                            </div>
-                          </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="d-flex align-items-center me-3">
-                              <button class="btn btn-danger custom-button me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                <i class="fas fa-minus"></i>
-                              </button>
-                
-                              <div class="form-outline">
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control custom-input" />
-                              </div>
-                
-                              <button class="btn btn-success custom-button ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                <i class="fas fa-plus"></i>
-                              </button>
-                            </div>
-                            <div style="width: 80px;" class="text-end">
-                              <h5 class="mb-0">$700</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;" class="ms-3">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div>
-                              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded" alt="Shopping item" style="width: 65px;">
-                            </div>
-                            <div class="ms-3">
-                              <h5>Apple Watch Series 6</h5>
-                              <p class="small mb-0">GPS + Cellular, Gold Aluminum</p>
-                            </div>
-                          </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="d-flex align-items-center me-3">
-                              <button class="btn btn-danger custom-button me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                <i class="fas fa-minus"></i>
-                              </button>
-                
-                              <div class="form-outline">
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control custom-input" />
-                              </div>
-                
-                              <button class="btn btn-success custom-button ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                <i class="fas fa-plus"></i>
-                              </button>
-                            </div>
-                            <div style="width: 80px;" class="text-end">
-                              <h5 class="mb-0">$400</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;" class="ms-3">
-                              <i class="fas fa-trash-alt"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                
-                    <div class="card mb-3">
-                      <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex flex-row align-items-center">
-                            <div>
-                              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp" class="img-fluid rounded" alt="Shopping item" style="width: 65px;">
-                            </div>
-                            <div class="ms-3">
-                              <h5>Kindle Paperwhite</h5>
-                              <p class="small mb-0">8GB, Black</p>
-                            </div>
-                          </div>
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="d-flex align-items-center me-3">
-                              <button class="btn btn-danger custom-button me-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                <i class="fas fa-minus"></i>
-                              </button>
-                
-                              <div class="form-outline">
-                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control custom-input" />
-                              </div>
-                
-                              <button class="btn btn-success custom-button ms-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                <i class="fas fa-plus"></i>
-                              </button>
-                            </div>
-                            <div style="width: 80px;" class="text-end">
-                              <h5 class="mb-0">$130</h5>
-                            </div>
-                            <a href="#!" style="color: #cecece;" class="ms-3">
+                            <a style="color: #cecece;" class="ms-3" (click)="removeItem(item.productId)">
                               <i class="fas fa-trash-alt"></i>
                             </a>
                           </div>
@@ -271,22 +86,22 @@
   
                       <div class="d-flex justify-content-between">
                         <p class="mb-2">Subtotal</p>
-                        <p class="mb-2">$4798.00</p>
+                        <p class="mb-2">{{totalWithoutGST}}</p>
                       </div>
   
                       <div class="d-flex justify-content-between">
-                        <p class="mb-2">Shipping</p>
-                        <p class="mb-2">$20.00</p>
+                        <p class="mb-2">GST %</p>
+                        <p class="mb-2">18%</p>
                       </div>
   
                       <div class="d-flex justify-content-between mb-4">
                         <p class="mb-2">Total(Incl. taxes)</p>
-                        <p class="mb-2">$4818.00</p>
+                        <p class="mb-2">$ {{totalWithGST}}</p>
                       </div>
   
                       <button type="button" class="btn btn-info checkout-button btn-lg" (click)="onCheckout()">
                         <div class="d-flex justify-content-between" style="color: white;">
-                          <span>$4818.00</span>
+                          <span>$ {{totalWithGST}} </span>
                           <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                         </div>
                       </button>

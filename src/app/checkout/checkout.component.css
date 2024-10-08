@@ -230,3 +230,30 @@ body{margin-top:20px;
         font-size: 13px;
         font-weight: 500
     }    
+
+    .cart-items{
+        --sb-track-color: #d3edf9;
+        --sb-thumb-color: #4bb6b7;
+        --sb-size: 9px;
+      }
+      
+      .cart-items::-webkit-scrollbar {
+        width: var(--sb-size);
+      }
+      
+      .cart-items::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 7px;
+      }
+      
+      .cart-items::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 7px;
+      }
+      
+      @supports not selector(::-webkit-scrollbar) {
+        .cart-items {
+            scrollbar-color: var(--sb-thumb-color)
+                           var(--sb-track-color);
+        }
+      } 

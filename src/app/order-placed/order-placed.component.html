@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Order Placed Successfully!</h2>
+    <h5 class="text-center mb-4">Thank you for your order!</h5>
+
+    <div class="alert alert-success" role="alert">
+        Your order has been successfully placed. We will send a confirmation to your email shortly.
+    </div>
+
+    <div class="mb-4">
+        <h5>Billing Information</h5>
+        <p><strong>Name:</strong> {{ orderData?.billingName }}</p>
+        <p><strong>Address:</strong> {{ orderData?.shippingAddress }}</p>
+        <p><strong>Mode of Payment:</strong> {{ orderData?.paymentMethod }}</p>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orderData?.cartItems">
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.price.toFixed(2) }}</td>
+                <td>${{ (item.price * item.quantity).toFixed(2) }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end fw-bold">Total:</td>
+                <td>${{ orderData?.total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="text-center mt-4">
+        <a routerLink="/home/accessories" class="btn btn-primary">
+            <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping
+        </a>
+    </div>
+</div>

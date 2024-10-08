@@ -24,9 +24,6 @@ export class AccessoriesHomeComponent {
     { name: 'Royal Enfield', image: '../assets/royal_enfield.webp' },
     { name: 'KTM', image: '../assets/KTM.webp' },
     { name: 'Suzuki', image: '../assets/suzuki.webp' },
-    { name: 'Yamaha', image: '../assets/yamaha.webp' },
-    { name: 'Ducati', image: '../assets/ducati.webp' },
-    { name: 'BMW', image: '../assets/bmw.webp' },
   ];
 
   scrollLeft() {

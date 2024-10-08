@@ -3,10 +3,11 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../service/login.service';
-import { Login } from '../model/login';
-import { AuthenticationToken } from '../model/authenticationToken';
-import { Register } from '../model/register';
-import { Forgot } from '../model/forgot';
+import { Login } from '../models/login';
+import { AuthenticationToken } from '../models/authenticationToken';
+import { Register } from '../models/register';
+import { Forgot } from '../models/forgot';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent{
   statusCode: number = 0;
   confirmPassword: String = ''
   
-  constructor(private loginService: LoginService, private router: Router){}
+  constructor(private authService: AuthService, private loginService: LoginService, private router: Router){}
 
   loginUser: Login = new Login();
   registerUser: Register = new Register();
@@ -64,7 +65,8 @@ export class LoginComponent{
       next: (value) => {
         this.authToken = value;
         console.log("After submit: ", this.authToken);
-        localStorage.setItem('user', JSON.stringify(this.authToken));
+        this.authService.saveToken(this.authToken);
+
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 1000);

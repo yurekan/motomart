@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccessoryService } from '../../../service/accessory/accessory.service';
+import { Accessory } from '../../../models/accessory.model';
+import { ShoppingCartService } from '../../../service/shopping-cart.service';
+import { CartItem } from '../../../models/cart-item.model';
 
 @Component({
   selector: 'app-accessories-page',
@@ -14,6 +19,8 @@ export class AccessoriesPageComponent {
 
   quantity: number = 1; // Default quantity
   currentImage: string = '../assets/pic1.jpg'; // Default image
+  id?: number;
+  accessory: Accessory = new Accessory();
 
   images: string[] = [
     '../assets/pic1.jpg',
@@ -27,6 +34,23 @@ export class AccessoriesPageComponent {
     '../assets/slide1.jpg',
     '../assets/slide2.jpg'
   ];
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private cartService: ShoppingCartService,
+    private accessoryService: AccessoryService // Inject the service
+  ) {}
+
+  ngOnInit() {
+    // Get the category from the route parameters
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id') || 0;
+      this.id = idParam as number; // Type cast if needed
+      // Fetch accessories based on the selected category
+      this.fetchAccessories(this.id);
+    });
+  }
 
   changeImage(image: string) {
     this.currentImage = image; // Change the main image
@@ -43,8 +67,27 @@ export class AccessoriesPageComponent {
   }
 
   addToCart() {
-    console.log("Add to cart button clicked"); // Check if this line executes
-    alert(`Added ${this.quantity} item(s) to the cart!`);
+    this.cartService.addToCart({
+      productId: this.accessory.accessoryId || 0, 
+      name: this.accessory.name || '',
+      price: this.accessory.price || 0,
+      quantity: this.quantity
+    });
+    this.quantity = 1;
+  }
+
+  fetchAccessories(id: number) {
+    this.accessoryService.getAccessoryById(id).subscribe({
+      next: (data) => {
+        this.accessory = data; // Set the accessories list
+        const count = this.accessory.visitCount || 0;
+        this.accessory.visitCount = count + 1;
+        this.accessoryService.updateAccessory(id, this.accessory);
+      },
+      error: (err) => {
+        console.error('Error fetching accessories:', err);
+      }
+    });
   }
 
   ngAfterViewInit() {

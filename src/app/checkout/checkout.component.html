@@ -3,17 +3,15 @@
 
 <div class="container">
     <div class="py-5 text-center">
-        <img class="mb-4 d-block mx-auto"
-        src="../../assets/Set_People_mobile_payment_G_01.jpg" width="180" height="100">
+        <img class="mb-4 d-block mx-auto" src="../../assets/Set_People_mobile_payment_G_01.jpg" width="180" height="100">
         <h2>Checkout Form</h2>
-        <p class="lead">Below is an example form build entirely with bootstrap.</p>
+        <p class="lead">Fill the details to proceed with payment.</p>
     </div>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-xl-8">
-
             <div class="card">
                 <div class="card-body">
                     <ol class="activity-checkout mb-0 px-4 mt-3">
@@ -26,67 +24,78 @@
                             <div class="feed-item-list">
                                 <div>
                                     <h5 class="font-size-16 mb-1">Billing Info</h5>
-                                    <p class="text-muted text-truncate mb-4">Sed ut perspiciatis unde omnis iste</p>
+                                    <p class="text-muted text-truncate mb-4">Please provide your billing details.</p>
                                     <div class="mb-3">
-                                        <form>
+                                        <form #billingForm="ngForm" (ngSubmit)="onSubmit(billingForm)">
                                             <div>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="billing-name">Name</label>
-                                                            <input type="text" class="form-control" id="billing-name" placeholder="Enter name"
-                                                            [(ngModel)]="shippingDetails.name">
+                                                            <input type="text" class="form-control" id="billing-name" name="name" [(ngModel)]="checkout.name" placeholder="Enter name" required>
+                                                            <div *ngIf="billingForm.controls['name']?.invalid && billingForm.controls['name']?.touched" class="text-danger">
+                                                                Name is required.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="billing-email-address">Email Address</label>
-                                                            <input type="email" class="form-control" id="billing-email-address" placeholder="Enter email">
+                                                            <input type="email" class="form-control" id="billing-email-address" name="email" [(ngModel)]="checkout.email" placeholder="Enter email" required email>
+                                                            <div *ngIf="billingForm.controls['email']?.invalid && billingForm.controls['email']?.touched" class="text-danger">
+                                                                Valid email is required.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="billing-phone">Phone</label>
-                                                            <input type="text" class="form-control" id="billing-phone" placeholder="Enter Phone no.">
+                                                            <input type="text" class="form-control" id="billing-phone" name="phone" [(ngModel)]="checkout.phone" placeholder="Enter Phone no." required>
+                                                            <div *ngIf="billingForm.controls['phone']?.invalid && billingForm.controls['phone']?.touched" class="text-danger">
+                                                                Phone number is required.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="billing-address">Address</label>
-                                                    <textarea class="form-control" id="billing-address" rows="3" placeholder="Enter full address"
-                                                    [(ngModel)]="shippingDetails.address"></textarea>
+                                                    <textarea class="form-control" id="billing-address" name="address" [(ngModel)]="checkout.address" rows="3" placeholder="Enter full address" required></textarea>
+                                                    <div *ngIf="billingForm.controls['address']?.invalid && billingForm.controls['address']?.touched" class="text-danger">
+                                                        Address is required.
+                                                    </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <div class="mb-4 mb-lg-0">
-                                                            <label class="form-label">Country</label>
-                                                            <select class="form-control form-select" title="Country">
-                                                                <option value="0">Select Country</option>
-                                                                <option value="AF">Afghanistan</option>
-                                                                <option value="AL">Albania</option>
-                                                                <option value="DZ">Algeria</option>
-                                                                <option value="AS">American Samoa</option>
-                                                                <option value="AD">Andorra</option>
-                                                                <option value="AO">Angola</option>
-                                                                <option value="AI">Anguilla</option>                                   
+                                                            <label class="form-label">City</label>
+                                                            <select class="form-control form-select" name="city" [(ngModel)]="checkout.city" required>
+                                                                <option value="">Select City</option>
+                                                                <option value="BL">Bengaluru</option>
+                                                                <option value="CH">Chennai</option>
+                                                                <option value="DL">Delhi</option>
+                                                                <option value="MI">Mumbai</option>
+                                                                <option value="KL">Kolkata</option>                                   
                                                             </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-4">
-                                                        <div class="mb-4 mb-lg-0">
-                                                            <label class="form-label" for="billing-city">City</label>
-                                                            <input type="text" class="form-control" id="billing-city" placeholder="Enter City">
+                                                            <div *ngIf="billingForm.controls['city']?.invalid && billingForm.controls['city']?.touched" class="text-danger">
+                                                                City is required.
+                                                            </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-4">
                                                         <div class="mb-0">
                                                             <label class="form-label" for="zip-code">Zip / Postal code</label>
-                                                            <input type="text" class="form-control" id="zip-code" placeholder="Enter Postal code">
+                                                            <input type="text" class="form-control" id="zip-code" name="zipCode" [(ngModel)]="checkout.zipCode" placeholder="Enter Postal code" required>
+                                                            <div *ngIf="billingForm.controls['zipCode']?.invalid && billingForm.controls['zipCode']?.touched" class="text-danger">
+                                                                Zip code is required.
+                                                            </div>
                                                         </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4 d-flex align-items-end">
+                                                        <button type="submit" class="btn btn-primary mt-3" [disabled]="billingForm.invalid">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +104,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="checkout-item">
+                        <li class="checkout-item" *ngIf="submittedBillingInfo">
                             <div class="avatar checkout-icon p-1">
                                 <div class="avatar-title rounded-circle bg-primary">
                                     <i class="bx bxs-truck text-white font-size-20"></i>
@@ -104,53 +113,16 @@
                             <div class="feed-item-list">
                                 <div>
                                     <h5 class="font-size-16 mb-1">Shipping Info</h5>
-                                    <p class="text-muted text-truncate mb-4">Neque porro quisquam est</p>
+                                    <p class="text-muted text-truncate mb-4">Confirm your shipping address.</p>
                                     <div class="mb-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div data-bs-toggle="collapse">
-                                                    <label class="card-radio-label mb-0">
-                                                        <input type="radio" name="address" id="info-address1" class="card-radio-input" checked="">
-                                                        <div class="card-radio text-truncate p-3">
-                                                            <span class="fs-14 mb-4 d-block">Address 1</span>
-                                                            <span class="fs-14 mb-2 d-block">Bradley McMillian</span>
-                                                            <span class="text-muted fw-normal text-wrap mb-1 d-block">109 Clarksburg Park Road Show Low, AZ 85901</span>
-                                                           
-                                                            <span class="text-muted fw-normal d-block">Mo. 012-345-6789</span>
-                                                        </div>
-                                                    </label>
-                                                    <div class="edit-btn bg-light  rounded">
-                                                        <a href="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit">
-                                                            <i class="bx bx-pencil font-size-16"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div>
-                                                    <label class="card-radio-label mb-0">
-                                                        <input type="radio" name="address" id="info-address2" class="card-radio-input">
-                                                        <div class="card-radio text-truncate p-3">
-                                                            <span class="fs-14 mb-4 d-block">Address 2</span>
-                                                            <span class="fs-14 mb-2 d-block">Bradley McMillian</span>
-                                                            <span class="text-muted fw-normal text-wrap mb-1 d-block">109 Clarksburg Park Road Show Low, AZ 85901</span>
-                                                            <span class="text-muted fw-normal d-block">Mo. 012-345-6789</span>
-                                                        </div>
-                                                    </label>
-                                                    <div class="edit-btn bg-light  rounded">
-                                                        <a href="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit">
-                                                            <i class="bx bx-pencil font-size-16"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <h6 class="mb-2">Address:</h6>
+                                        <p>{{ checkout.name }}<br>{{ checkout.address }}, {{ checkout.city }}, {{ checkout.zipCode }}, India</p>
+                                        <button class="btn btn-secondary" (click)="submittedBillingInfo = false">Edit</button>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="checkout-item">
+                        <li class="checkout-item" *ngIf="submittedBillingInfo">
                             <div class="avatar checkout-icon p-1">
                                 <div class="avatar-title rounded-circle bg-primary">
                                     <i class="bx bxs-wallet-alt text-white font-size-20"></i>
@@ -159,48 +131,29 @@
                             <div class="feed-item-list">
                                 <div>
                                     <h5 class="font-size-16 mb-1">Payment Info</h5>
-                                    <p class="text-muted text-truncate mb-4">Duis arcu tortor, suscipit eget</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-size-14 mb-3">Payment method :</h5>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div data-bs-toggle="collapse">
+                                    <p class="text-muted text-truncate mb-4">Select your payment method.</p>
+                                    <div>
+                                        <h5 class="font-size-14 mb-3">Payment method:</h5>
+                                        <div class="row">
+                                            <div class="col-lg-6">
                                                 <label class="card-radio-label">
-                                                    <input type="radio" name="pay-method" id="pay-methodoption1" class="card-radio-input">
+                                                    <input type="radio" name="pay-method" id="pay-methodoption1" class="card-radio-input" value="card">
                                                     <span class="card-radio py-3 text-center text-truncate">
                                                         <i class="bx bx-credit-card d-block h2 mb-3"></i>
                                                         Credit / Debit Card
                                                     </span>
                                                 </label>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div>
+                                            <div class="col-lg-6">
                                                 <label class="card-radio-label">
-                                                    <input type="radio" name="pay-method" id="pay-methodoption2" class="card-radio-input">
-                                                    <span class="card-radio py-3 text-center text-truncate">
-                                                        <i class="bx bxl-paypal d-block h2 mb-3"></i>
-                                                        Paypal
-                                                    </span>
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-sm-6">
-                                            <div>
-                                                <label class="card-radio-label">
-                                                    <input type="radio" name="pay-method" id="pay-methodoption3" class="card-radio-input" checked="">
-
+                                                    <input type="radio" name="pay-method" id="pay-methodoption2" class="card-radio-input" value="cash" checked>
                                                     <span class="card-radio py-3 text-center text-truncate">
                                                         <i class="bx bx-money d-block h2 mb-3"></i>
-                                                        <span>Cash on Delivery</span>
+                                                        Cash on Delivery
                                                     </span>
                                                 </label>
                                             </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -211,89 +164,74 @@
 
             <div class="row my-4">
                 <div class="col">
-                    <a href="#" class="btn btn-link text-muted">
+                    <a routerLink="/home/accessories" class="btn btn-link text-muted">
                         <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping </a>
-                </div> <!-- end col -->
-                <div class="col">
-                    <div class="text-end mt-2 mt-sm-0">
-                        <a href="#" class="btn btn-success">
-                            <i class="mdi mdi-cart-outline me-1"></i> Procced </a>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row-->
-        </div>
-        <div class="col-xl-4">
-            <div class="card p-4">
-              <h6 class="mb-3">Summary</h6>
-          
-              <div class="d-flex justify-content-between">
-                <p class="mb-2">Total price:</p>
-                <p class="mb-2">$195.90</p>
-              </div>
-          
-              <div class="d-flex justify-content-between">
-                <p class="mb-2">Discount:</p>
-                <p class="mb-2 text-danger">- $60.00</p>
-              </div>
-          
-              <div class="d-flex justify-content-between">
-                <p class="mb-2">Shipping cost:</p>
-                <p class="mb-2">+ $14.00</p>
-              </div>
-          
-              <hr />
-          
-              <div class="d-flex justify-content-between">
-                <p class="mb-2">Total price:</p>
-                <p class="mb-2 fw-bold">$149.90</p>
-              </div>
-          
-              <div class="input-group mt-3 mb-4 d-flex align-items-center">
-                <input type="text" class="form-control border" placeholder="Promo code" style="width: 150px;" />
-                <button class="btn btn-light text-primary border ms-2">Apply</button>
-              </div>
-                              
-          
-              <hr />
-              <h6 class="text-dark my-4">Items in cart</h6>
-          
-              <!-- First item -->
-              <div class="d-flex align-items-center mb-4">
-                <div class="me-3 position-relative">
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">1</span>
-                  <img src="https://mdbootstrap.com/img/bootstrap-ecommerce/items/7.webp" style="height: 96px; width: 96px;" class="img-sm rounded border" />
                 </div>
-                <div>
-                  <a href="#" class="nav-link">Gaming Headset with Mic <br /> Darkblue color</a>
-                  <div class="price text-muted">Total: $295.99</div>
+            <!-- Replace the Checkout button section -->
+            
+            <div class="col">
+                <div class="text-end mt-2 mt-sm-0">
+                    <button (click)="onProceed()" class="btn btn-success">
+                        <i class="mdi mdi-cart-outline me-1"></i> Proceed
+                    </button>
                 </div>
-              </div>
-          
-              <!-- Second item -->
-              <div class="d-flex align-items-center mb-4">
-                <div class="me-3 position-relative">
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">1</span>
-                  <img src="https://mdbootstrap.com/img/bootstrap-ecommerce/items/5.webp" style="height: 96px; width: 96px;" class="img-sm rounded border" />
-                </div>
-                <div>
-                  <a href="#" class="nav-link">Apple Watch Series 4 Space <br /> Large size</a>
-                  <div class="price text-muted">Total: $217.99</div>
-                </div>
-              </div>
-          
-              <!-- Third item -->
-              <div class="d-flex align-items-center mb-4">
-                <div class="me-3 position-relative">
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">3</span>
-                  <img src="https://mdbootstrap.com/img/bootstrap-ecommerce/items/1.webp" style="height: 96px; width: 96px;" class="img-sm rounded border" />
-                </div>
-                <div>
-                  <a href="#" class="nav-link">GoPro HERO6 4K Action Camera - Black</a>
-                  <div class="price text-muted">Total: $910.00</div>
-                </div>
-              </div>
             </div>
-          </div>          
+
+            </div>
+        </div>
+
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="mb-3">Order Summary</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Total price:</p>
+                        <p class="mb-2">$ {{ totalWithGST.toFixed(2) }}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Discount:</p>
+                        <p class="mb-2 text-danger">- $ {{ (totalWithGST * (discount / 100)).toFixed(2) }}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Shipping cost:</p>
+                        <p class="mb-2">Free Delivery</p>
+                    </div>
+
+                    <hr />
+
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Total price:</p>
+                        <p class="mb-2 fw-bold">${{ totalWithDiscount }}</p>
+                    </div>
+
+                    <div class="input-group mt-3 mb-4 d-flex align-items-center">
+                        <input type="text" class="form-control border" placeholder="Promo code" [(ngModel)]="promoCode" style="width: 150px;" />
+                        <button class="btn btn-light text-primary border ms-2" (click)="applyPromoCode()">Apply</button>
+                    </div>
+
+                    <hr />
+                    <div class="cart-items mb-4" style="max-height: 500px; overflow-y: auto;">
+                        <h6 class="text-dark my-4">Items in cart</h6>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let item of cartItems">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="me-3 position-relative">
+                                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">{{item.quantity}}</span>
+                                      <img src="https://mdbootstrap.com/img/bootstrap-ecommerce/items/7.webp" style="height: 96px; width: 96px;" class="img-sm rounded border" />
+                                    </div>
+                                    <div>
+                                      <a href="#" class="nav-link">{{item.name}}<br /> {{item.name}}</a>
+                                      <div class="price text-muted">Total: ${{item.price * item.quantity}}</div>
+                                    </div>
+                                  </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- end row -->
 </div>

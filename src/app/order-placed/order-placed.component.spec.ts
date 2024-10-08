@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StartHomeComponent } from './start-home.component';
+import { OrderPlacedComponent } from './order-placed.component';
 
-describe('StartHomeComponent', () => {
-  let component: StartHomeComponent;
-  let fixture: ComponentFixture<StartHomeComponent>;
+describe('OrderPlacedComponent', () => {
+  let component: OrderPlacedComponent;
+  let fixture: ComponentFixture<OrderPlacedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartHomeComponent]
+      imports: [OrderPlacedComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StartHomeComponent);
+    fixture = TestBed.createComponent(OrderPlacedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
