@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accessories-featured',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './accessories-featured.component.css'
 })
 export class AccessoriesFeaturedComponent {
+  constructor(private router: Router){}
 
+  viewAccessory(){
+    this.router.navigate(['home/accessories-page']);
+  }
 }

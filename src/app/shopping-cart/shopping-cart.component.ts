@@ -10,39 +10,20 @@ import { Router, RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css',
-  animations: [
-    trigger('cartAnimation', [
-      state('closed', style({
-        opacity: 0,
-        transform: 'scale(0.9)'
-      })),
-      state('open', style({
-        opacity: 1,
-        transform: 'scale(1)'
-      })),
-      transition('closed => open', [
-        animate('300ms ease-in')
-      ]),
-      transition('open => closed', [
-        animate('300ms ease-out')
-      ])
-    ])
-  ]
 
 })
 export class ShoppingCartComponent {
 
-  cartState = 'closed';
+  isVisible: boolean = false;
 
-  constructor(private shoppingCartService: ShoppingCartService, private router: Router) { 
-    // Subscribe to visibility changes to toggle animation state
-    this.shoppingCartService.isCartVisible$.subscribe(isVisible => {
-      this.cartState = isVisible ? 'open' : 'closed';
+  constructor(private shoppingCartService: ShoppingCartService, private router: Router) {
+    this.shoppingCartService.cartVisible$.subscribe(isVisible => {
+      this.isVisible = isVisible;
     });
   }
 
   closeCart() {
-    this.shoppingCartService.closeCart(); // Use a service to toggle the cart visibility
+    this.shoppingCartService.closeCart();
   }
 
   onCheckout() {

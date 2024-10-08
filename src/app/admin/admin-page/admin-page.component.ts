@@ -6,7 +6,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-admin-page',
   standalone: true,
-  imports: [CommonModule,NgFor,RouterOutlet,RouterLink],
+  imports: [CommonModule,NgFor,RouterLink],
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.css'
 })

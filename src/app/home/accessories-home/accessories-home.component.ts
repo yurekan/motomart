@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ShoppingCartService } from '../service/shopping-cart.service';
+import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { AccessoriesFilterComponent } from "./accessories-filter/accessories-filter.component";

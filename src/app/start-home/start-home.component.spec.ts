@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RunProjectComponent } from './run-project.component';
+import { StartHomeComponent } from './start-home.component';
 
-describe('RunProjectComponent', () => {
-  let component: RunProjectComponent;
-  let fixture: ComponentFixture<RunProjectComponent>;
+describe('StartHomeComponent', () => {
+  let component: StartHomeComponent;
+  let fixture: ComponentFixture<StartHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RunProjectComponent]
+      imports: [StartHomeComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RunProjectComponent);
+    fixture = TestBed.createComponent(StartHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

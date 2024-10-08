@@ -5,14 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  private cartVisible = new BehaviorSubject<boolean>(false);
-  isCartVisible$ = this.cartVisible.asObservable();
+  private cartVisibleSubject = new BehaviorSubject<boolean>(false);
+  cartVisible$ = this.cartVisibleSubject.asObservable();
 
   openCart() {
-    this.cartVisible.next(true);
+    this.cartVisibleSubject.next(true);
   }
 
   closeCart() {
-    this.cartVisible.next(false);
+    this.cartVisibleSubject.next(false);
   }
 }

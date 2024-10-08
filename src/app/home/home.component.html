@@ -1,7 +1,12 @@
-<app-navbar></app-navbar>
+<!-- app-navbar></app-navbar>
 
 <app-shopping-cart *ngIf="!isCheckoutPage && (shoppingCartService.isCartVisible$ | async)"></app-shopping-cart>
 
 <app-ecommerce-home *ngIf="!isCheckoutPage"></app-ecommerce-home>
 
+<app-footer></app-footer -->
+
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>   
 <app-footer></app-footer>
+<app-shopping-cart></app-shopping-cart>

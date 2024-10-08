@@ -64,6 +64,7 @@ export class LoginComponent{
       next: (value) => {
         this.authToken = value;
         console.log("After submit: ", this.authToken);
+        localStorage.setItem('user', JSON.stringify(this.authToken));
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 1000);
@@ -87,7 +88,7 @@ export class LoginComponent{
   
   onSubmitRegister(){
     this.isVisible = true;
-    // console.log("Register -", this.registerUser);
+    console.log("Register -", this.registerUser);
     this.loginService.registerUser(this.registerUser).subscribe({
       next: (value) => {
         console.log("Value is", value);

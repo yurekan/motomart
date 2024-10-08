@@ -12,6 +12,6 @@ export class AccessoriesFilterComponent {
   constructor(private router: Router){}
 
   openCategoryList(){
-    this.router.navigate(['accessories/accessories-list']);
+    this.router.navigate(['home/accessories-list']);
   }
 }
