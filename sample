@@ -1,0 +1,64 @@
+sony = ["PS","PS2","PS3","PS4","PSP","PSV"]
+
+nintendo = ["N64","GB","GBA","GC","Wii","WiiU","DS","NES","3DS","SNES"]
+
+microsoft = ["XB","X360","Xone"]
+
+pc = ["PC"]
+
+atari = ["2600"]
+
+panasonic = ["3D0"]
+
+sega = ["DC","GC","SAT","SCD"]
+ 
+def categories(x):
+
+    """
+
+    This function maps the products to the platform makers and will be coupled with .apply
+
+    """
+
+    if x in sony:
+
+        return "Sony"
+
+    elif x in nintendo:
+
+        return "Nintendo"
+
+    elif x in microsoft:
+
+        return "Microsoft"
+
+    elif x in pc:
+
+        return "PC"
+
+    elif x in atari:
+
+        return "Atari"
+
+    elif x in panasonic:
+
+        return "Panasonic"
+
+    elif x in sega:
+
+        return "Sega"
+
+    else:
+
+        return "Other"
+ 
+# now we can take a column and apply the categories function to the same
+ 
+df['Platform'].apply(categories).value_counts().reset_index()
+ 
+# we can create a new column called Platform Makers
+ 
+df['Platform_Makers'] = df['Platform'].apply(categories)
+
+df.head()
+ 
