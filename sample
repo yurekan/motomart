@@ -1,64 +1,68 @@
-sony = ["PS","PS2","PS3","PS4","PSP","PSV"]
-
-nintendo = ["N64","GB","GBA","GC","Wii","WiiU","DS","NES","3DS","SNES"]
-
-microsoft = ["XB","X360","Xone"]
-
-pc = ["PC"]
-
-atari = ["2600"]
-
-panasonic = ["3D0"]
-
-sega = ["DC","GC","SAT","SCD"]
+### Data:
  
-def categories(x):
-
-    """
-
-    This function maps the products to the platform makers and will be coupled with .apply
-
-    """
-
-    if x in sony:
-
-        return "Sony"
-
-    elif x in nintendo:
-
-        return "Nintendo"
-
-    elif x in microsoft:
-
-        return "Microsoft"
-
-    elif x in pc:
-
-        return "PC"
-
-    elif x in atari:
-
-        return "Atari"
-
-    elif x in panasonic:
-
-        return "Panasonic"
-
-    elif x in sega:
-
-        return "Sega"
-
-    else:
-
-        return "Other"
+The data used in this project is from an anonymous organisation’s social media ad campaign.
  
-# now we can take a column and apply the categories function to the same
+1.) ad_id: an unique ID for each ad.
  
-df['Platform'].apply(categories).value_counts().reset_index()
+2.) xyzcampaignid: an ID associated with each ad campaign of XYZ company.
  
-# we can create a new column called Platform Makers
+3.) fbcampaignid: an ID associated with how Facebook tracks each campaign.
  
-df['Platform_Makers'] = df['Platform'].apply(categories)
+4.) age: age of the person to whom the ad is shown.
+ 
+5.) gender: gender of the person to whim the add is shown
+ 
+6.) interest: a code specifying the category to which the person’s interest belongs (interests are as mentioned in the person’s Facebook public profile).
+ 
+7.) Impressions: the number of times the ad was shown.
+ 
+8.) Clicks: number of clicks on for that ad.
+ 
+9.) Spent: Amount paid by company xyz to Facebook, to show that ad.
+ 
+10.) Total conversion: Total number of people who enquired about the product after seeing the ad.
+ 
+11.) Approved conversion: Total number of people who bought the product after seeing the ad.
+df.info() by Chirantan Lonkar (External)
 
-df.head()
+df.info()
+df.columns by Chirantan Lonkar (External)
+
+df.columns
+df['gender'].value_counts()   # df['gender'... by Chirantan Lonkar (External)
+
+df['gender'].value_counts()
  
+# df['gender'].value_counts(normalize=True)
+df['age'].value_counts()   # most age group... by Chirantan Lonkar (External)
+
+df['age'].value_counts()
+ 
+# most age groups seem to fall in 30-34 , the least in 40-44
+# ads are not targetting students or youngsters
+# targetting working professionals, salaried and business people
+df.describe() # summary statistics : nume... by Chirantan Lonkar (External)
+
+df.describe()
+# summary statistics : numerical cols
+# include= 'all' : numerical + cat columns
+df.describe().T.apply(lambda s: s.apply('{0... by Chirantan Lonkar (External)
+
+df.describe().T.apply(lambda s: s.apply('{0:.2f}'.format)) 
+
+#The apply function suppresses scientific notation formatting
+## Observations   1. On average, each ad re... by Chirantan Lonkar (External)
+## Observations
+ 
+1. On average, each ad received 32.766 impressions from interests, with a minimum of 2 and a maximum of 114. The median value is 25, indicating that half of the ads received 25 or fewer impressions from interests.
+ 
+2. The Impressions column shows a large range, with a minimum of 87 and a maximum of over 3 million. The median value is 51,509, indicating that half of the ads received fewer than 51,509 impressions.
+ 
+3. On average, each ad received 33.39 clicks. However, the data is right-skewed, as indicated by the mean being higher than the 75% quartile. The majority of ads received 8 or fewer clicks, with some outliers receiving over 400 clicks.
+ 
+4. The Spent column shows that, on average, each ad spent $51.36, with a minimum of $0 and a maximum of $639.95. The median value is $12.37, suggesting that half of the ads spent less than this amount.
+ 
+5. The Total_Conversion column indicates that, on average, each ad had 2.856 conversions. However, the data is right-skewed, with some ads having as many as 60 conversions.
+ 
+6. The Approved_Conversion column shows that, on average, each ad had 0.944 approved conversions. The data is right-skewed, with a minimum of 0 and a maximum of 21.
+has context menu
